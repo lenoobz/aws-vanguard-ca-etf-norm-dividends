@@ -15,8 +15,8 @@ var AppConf = AppConfig{
 		Dbname:        "etf_funds_dev",
 		SchemaVersion: "1",
 		Colnames: map[string]string{
-			"distribution": "vanguard_fund_distribution",
-			"dividends":    "asset_dividends",
+			"vanguard_fund_distribution": "vanguard_fund_distribution",
+			"asset_dividends":            "asset_dividends",
 		},
 	},
 }

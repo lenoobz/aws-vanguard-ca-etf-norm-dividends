@@ -104,7 +104,7 @@ func (r *DividendMongo) InsertAssetDividend(ctx context.Context, dividend *entit
 	}
 
 	// what collection we are going to use
-	colname, ok := r.conf.Colnames[consts.ASSET_DIVIDEND_COL]
+	colname, ok := r.conf.Colnames[consts.ASSET_DIVIDENDS_COLLECTION]
 	if !ok {
 		r.log.Error(ctx, "cannot find collection name")
 	}

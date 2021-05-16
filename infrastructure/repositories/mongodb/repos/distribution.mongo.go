@@ -97,7 +97,7 @@ func (r *DistributionMongo) FindFundDistributions(ctx context.Context) ([]*entit
 	defer cancel()
 
 	// what collection we are going to use
-	colname, ok := r.conf.Colnames[consts.VANGUARD_DISTRIBUTION_COL]
+	colname, ok := r.conf.Colnames[consts.VANGUARD_FUND_DISTRIBUTION_COLLECTION]
 	if !ok {
 		r.log.Error(ctx, "cannot find collection name")
 		return nil, fmt.Errorf("cannot find collection name")
