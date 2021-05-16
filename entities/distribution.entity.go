@@ -2,8 +2,10 @@ package entities
 
 import (
 	"context"
+	"strings"
 
 	logger "github.com/hthl85/aws-lambda-logger"
+	"github.com/hthl85/aws-vanguard-etf-ca-norm-dividends/consts"
 	"github.com/hthl85/aws-vanguard-etf-ca-norm-dividends/utils/datetime"
 )
 
@@ -33,33 +35,35 @@ func (f *FundDistribution) MapFundDistributionToAssetDividend(ctx context.Contex
 	}
 
 	for _, distribution := range f.DistributionHistories {
-		exDividendDate, err := datetime.GetStarDateFromString(distribution.ExDividendDate)
-		if err != nil {
-			log.Error(ctx, "parse exDividendDate failed", "error", err)
-		}
+		if strings.EqualFold(distribution.DistCode, consts.INCOME_DISTRIBUTION) {
+			exDividendDate, err := datetime.GetStarDateFromString(distribution.ExDividendDate)
+			if err != nil {
+				log.Error(ctx, "parse exDividendDate failed", "error", err)
+			}
 
-		recordDate, err := datetime.GetStarDateFromString(distribution.RecordDate)
-		if err != nil {
-			log.Error(ctx, "parse recordDate failed", "error", err)
-		}
+			recordDate, err := datetime.GetStarDateFromString(distribution.RecordDate)
+			if err != nil {
+				log.Error(ctx, "parse recordDate failed", "error", err)
+			}
 
-		payableDate, err := datetime.GetStarDateFromString(distribution.PayableDate)
-		if err != nil {
-			log.Error(ctx, "parse payableDate failed", "error", err)
-		}
+			payableDate, err := datetime.GetStarDateFromString(distribution.PayableDate)
+			if err != nil {
+				log.Error(ctx, "parse payableDate failed", "error", err)
+			}
 
-		dividendDetails := &DividendDetails{
-			DistDesc:       distribution.DistDesc,
-			DistCode:       distribution.DistCode,
-			Amount:         distribution.DistributionAmount,
-			ExDividendDate: exDividendDate,
-			RecordDate:     recordDate,
-			PayableDate:    payableDate,
-		}
+			dividendDetails := &DividendDetails{
+				DistDesc:       distribution.DistDesc,
+				DistCode:       distribution.DistCode,
+				Amount:         distribution.DistributionAmount,
+				ExDividendDate: exDividendDate,
+				RecordDate:     recordDate,
+				PayableDate:    payableDate,
+			}
 
-		if payableDate != nil {
-			dividendTime := payableDate.Unix()
-			assetDividend.Dividends[dividendTime] = dividendDetails
+			if payableDate != nil {
+				dividendTime := payableDate.Unix()
+				assetDividend.Dividends[dividendTime] = dividendDetails
+			}
 		}
 	}
 
