@@ -7,5 +7,7 @@ const (
 )
 
 const (
-	DATA_SOURCE = "VANGUARD_CA"
+	DATA_SOURCE         = "VANGUARD_CA"
+	INCOME_DISTRIBUTION = "INC"
+	CAPITAL_GAIN        = "CGCA"
 )

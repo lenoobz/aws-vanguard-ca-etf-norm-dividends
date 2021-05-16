@@ -1,6 +1,7 @@
 package models
 
 import (
+	"strings"
 	"time"
 
 	"github.com/hthl85/aws-vanguard-etf-ca-norm-dividends/consts"
@@ -39,13 +40,15 @@ func NewAssetDividendModel(assetDividend *entities.AssetDividend) (*AssetDividen
 	}
 
 	for key, value := range assetDividend.Dividends {
-		assetDividendModel.Dividends[key] = &DividendDetailsModel{
-			DistDesc:       value.DistDesc,
-			DistCode:       value.DistCode,
-			Amount:         value.Amount,
-			ExDividendDate: value.ExDividendDate,
-			RecordDate:     value.RecordDate,
-			PayableDate:    value.PayableDate,
+		if strings.EqualFold(value.DistCode, consts.INCOME_DISTRIBUTION) {
+			assetDividendModel.Dividends[key] = &DividendDetailsModel{
+				DistDesc:       value.DistDesc,
+				DistCode:       value.DistCode,
+				Amount:         value.Amount,
+				ExDividendDate: value.ExDividendDate,
+				RecordDate:     value.RecordDate,
+				PayableDate:    value.PayableDate,
+			}
 		}
 	}
 
