@@ -97,7 +97,7 @@ func (r *DividendMongo) InsertAssetDividend(ctx context.Context, dividend *entit
 	ctx, cancel := createContext(ctx, r.conf.TimeoutMS)
 	defer cancel()
 
-	assetDividendModel, err := models.NewAssetDividendModel(dividend)
+	assetDividendModel, err := models.NewAssetDividendModel(ctx, r.log, dividend, r.conf.SchemaVersion)
 	if err != nil {
 		r.log.Error(ctx, "create model failed", "error", err)
 		return err
@@ -109,10 +109,6 @@ func (r *DividendMongo) InsertAssetDividend(ctx context.Context, dividend *entit
 		r.log.Error(ctx, "cannot find collection name")
 	}
 	col := r.db.Collection(colname)
-
-	assetDividendModel.IsActive = true
-	assetDividendModel.Schema = r.conf.SchemaVersion
-	assetDividendModel.ModifiedAt = time.Now().UTC().Unix()
 
 	filter := bson.D{{
 		Key:   "ticker",
