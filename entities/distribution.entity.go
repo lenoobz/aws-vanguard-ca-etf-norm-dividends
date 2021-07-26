@@ -4,9 +4,9 @@ import (
 	"context"
 	"strings"
 
-	logger "github.com/hthl85/aws-lambda-logger"
-	"github.com/hthl85/aws-vanguard-etf-ca-norm-dividends/consts"
-	"github.com/hthl85/aws-vanguard-etf-ca-norm-dividends/utils/datetime"
+	logger "github.com/lenoobz/aws-lambda-logger"
+	"github.com/lenoobz/aws-vanguard-etf-ca-norm-dividends/consts"
+	"github.com/lenoobz/aws-vanguard-etf-ca-norm-dividends/utils/datetime"
 )
 
 // FundDistribution struct

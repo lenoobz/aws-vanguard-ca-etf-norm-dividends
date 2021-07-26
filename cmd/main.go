@@ -5,12 +5,12 @@ import (
 	"log"
 
 	"github.com/google/uuid"
-	corid "github.com/hthl85/aws-lambda-corid"
-	logger "github.com/hthl85/aws-lambda-logger"
-	"github.com/hthl85/aws-vanguard-etf-ca-norm-dividends/config"
-	"github.com/hthl85/aws-vanguard-etf-ca-norm-dividends/infrastructure/repositories/mongodb/repos"
-	"github.com/hthl85/aws-vanguard-etf-ca-norm-dividends/usecase/distributions"
-	"github.com/hthl85/aws-vanguard-etf-ca-norm-dividends/usecase/dividends"
+	corid "github.com/lenoobz/aws-lambda-corid"
+	logger "github.com/lenoobz/aws-lambda-logger"
+	"github.com/lenoobz/aws-vanguard-etf-ca-norm-dividends/config"
+	"github.com/lenoobz/aws-vanguard-etf-ca-norm-dividends/infrastructure/repositories/mongodb/repos"
+	"github.com/lenoobz/aws-vanguard-etf-ca-norm-dividends/usecase/distributions"
+	"github.com/lenoobz/aws-vanguard-etf-ca-norm-dividends/usecase/dividends"
 )
 
 func main() {

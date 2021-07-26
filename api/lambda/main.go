@@ -4,11 +4,11 @@ import (
 	"log"
 
 	"github.com/aws/aws-lambda-go/lambda"
-	logger "github.com/hthl85/aws-lambda-logger"
-	"github.com/hthl85/aws-vanguard-etf-ca-norm-dividends/config"
-	"github.com/hthl85/aws-vanguard-etf-ca-norm-dividends/infrastructure/repositories/mongodb/repos"
-	"github.com/hthl85/aws-vanguard-etf-ca-norm-dividends/usecase/distributions"
-	"github.com/hthl85/aws-vanguard-etf-ca-norm-dividends/usecase/dividends"
+	logger "github.com/lenoobz/aws-lambda-logger"
+	"github.com/lenoobz/aws-vanguard-etf-ca-norm-dividends/config"
+	"github.com/lenoobz/aws-vanguard-etf-ca-norm-dividends/infrastructure/repositories/mongodb/repos"
+	"github.com/lenoobz/aws-vanguard-etf-ca-norm-dividends/usecase/distributions"
+	"github.com/lenoobz/aws-vanguard-etf-ca-norm-dividends/usecase/dividends"
 )
 
 func main() {

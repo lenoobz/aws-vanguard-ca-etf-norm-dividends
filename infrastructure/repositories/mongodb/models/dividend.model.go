@@ -5,9 +5,9 @@ import (
 	"strings"
 	"time"
 
-	logger "github.com/hthl85/aws-lambda-logger"
-	"github.com/hthl85/aws-vanguard-etf-ca-norm-dividends/consts"
-	"github.com/hthl85/aws-vanguard-etf-ca-norm-dividends/entities"
+	logger "github.com/lenoobz/aws-lambda-logger"
+	"github.com/lenoobz/aws-vanguard-etf-ca-norm-dividends/consts"
+	"github.com/lenoobz/aws-vanguard-etf-ca-norm-dividends/entities"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 

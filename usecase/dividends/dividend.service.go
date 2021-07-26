@@ -3,8 +3,8 @@ package dividends
 import (
 	"context"
 
-	logger "github.com/hthl85/aws-lambda-logger"
-	"github.com/hthl85/aws-vanguard-etf-ca-norm-dividends/usecase/distributions"
+	logger "github.com/lenoobz/aws-lambda-logger"
+	"github.com/lenoobz/aws-vanguard-etf-ca-norm-dividends/usecase/distributions"
 )
 
 // Service sector

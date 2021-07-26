@@ -3,7 +3,7 @@ package distributions
 import (
 	"context"
 
-	"github.com/hthl85/aws-vanguard-etf-ca-norm-dividends/entities"
+	"github.com/lenoobz/aws-vanguard-etf-ca-norm-dividends/entities"
 )
 
 ///////////////////////////////////////////////////////////
